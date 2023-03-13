@@ -21,8 +21,8 @@
           <mat-hint>Click the eye to toggle visibility</mat-hint>
         </mat-form-field>
 
-        <mat-hint class="mb-5">Do you have an account? <a routerLink="/login">Login</a></mat-hint>
-        <button class="submit-btn" mat-button>SUBMIT</button>
+        <mat-hint class="mb-5">Do you have an account? <a class="underline" routerLink="/login">Login</a></mat-hint>
+        <button (click)="send()" class="submit-btn" mat-button>SUBMIT</button>
       </div>
     </form>
   </div>

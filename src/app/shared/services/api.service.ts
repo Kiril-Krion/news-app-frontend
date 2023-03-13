@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { LoginForm, TokenDto } from '../models/auth.model';
+import { LoginForm, RegisterForm } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,10 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, payload).pipe(map(response => {
       localStorage.setItem('token', response.token);
     }))
+  }
+  public register(payload: RegisterForm): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/auth/register`, payload).pipe(map(response => {
+      localStorage.setItem('token', response.token);
+    }));
   }
 }

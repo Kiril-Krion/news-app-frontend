@@ -1,14 +1,18 @@
+import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { DestroySubscription } from 'src/app/shared/helpers/destroy-subscription';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent extends DestroySubscription implements OnInit {
   registerForm!: FormGroup;
 
   inputType = 'password';
@@ -17,7 +21,8 @@ export class RegisterComponent implements OnInit {
   icVisibility = icVisibility;
   icVisibilityOff = icVisibilityOff;
 
-  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef, private apiService: ApiService, private router: Router) {
+    super();
     this.initForm();
   }
 
@@ -36,6 +41,19 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  send() {
+    if(this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    const payload = this.registerForm.getRawValue();
+
+    this.apiService.register(payload).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
+      this.router.navigate(['/']);
+    })
+
+  }
 
   private initForm(): void {
     const fb = this.fb;
