@@ -10,12 +10,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { IconModule } from '@visurel/iconify-angular';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-  ],
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
     RegisterRoutingModule,
@@ -26,7 +24,8 @@ import { IconModule } from '@visurel/iconify-angular';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
-    IconModule
-  ]
+    MatSnackBarModule,
+    IconModule,
+  ],
 })
-export class RegisterModule { }
+export class RegisterModule {}

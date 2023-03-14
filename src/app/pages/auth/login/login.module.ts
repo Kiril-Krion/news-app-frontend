@@ -10,6 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {IconModule} from "@visurel/iconify-angular";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {IconModule} from "@visurel/iconify-angular";
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatSnackBarModule,
     IconModule
   ]
 })

@@ -6,6 +6,7 @@ import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { DestroySubscription } from 'src/app/shared/helpers/destroy-subscription';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent extends DestroySubscription implements OnInit {
   icVisibility = icVisibility;
   icVisibilityOff = icVisibilityOff;
 
-  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef, private apiService: ApiService, private router: Router) {
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef, private apiService: ApiService, private router: Router, private snackBar: MatSnackBar) {
     super();
     this.initForm();
   }
@@ -51,6 +52,8 @@ export class RegisterComponent extends DestroySubscription implements OnInit {
 
     this.apiService.register(payload).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
       this.router.navigate(['/']);
+    }, (err) => {
+      this.snackBar.open(err.message);
     })
 
   }

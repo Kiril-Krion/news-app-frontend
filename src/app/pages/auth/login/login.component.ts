@@ -6,6 +6,7 @@ import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
 import { takeUntil } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class LoginComponent extends DestroySubscription implements OnInit {
   icVisibilityOff = icVisibilityOff;
 
 
-  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef, private apiService: ApiService, private router: Router) {
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef, private apiService: ApiService, private router: Router, private snackBar: MatSnackBar) {
     super();
     this.initForm();
   }
@@ -53,6 +54,8 @@ export class LoginComponent extends DestroySubscription implements OnInit {
 
     this.apiService.login(formData).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
       this.router.navigate(['/']);
+    }, (err) => {
+      this.snackBar.open('User not found(');
     });
   }
 

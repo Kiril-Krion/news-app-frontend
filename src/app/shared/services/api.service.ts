@@ -21,4 +21,7 @@ export class ApiService {
       localStorage.setItem('token', response.token);
     }));
   }
+  public getUser(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/auth/me`);
+  }
 }
