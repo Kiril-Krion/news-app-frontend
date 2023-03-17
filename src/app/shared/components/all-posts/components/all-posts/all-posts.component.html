@@ -1,0 +1,22 @@
+<ng-container *ngFor="let posts of allPosts">
+  <div class="example-card w-full">
+    <img
+      class="w-full mb-4"
+      [src]="posts.imageUrl"
+      alt="photo"
+    />
+    <div class="card-content ml-5 mb-5">
+      <div>
+        <h1>{{ posts.title }}</h1>
+      </div>
+      <div>
+        <h3>Description: </h3>
+        <p class="desc">{{ posts.text }}</p>
+      </div>
+      <div class="flex items-center pb-5">
+        <mat-icon class="block mr-2">remove_red_eye</mat-icon>
+        <div>{{ posts.viewsCount }}</div>
+      </div>
+      </div>
+  </div>
+</ng-container>

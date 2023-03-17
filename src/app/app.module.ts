@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from './shared/components/header/header.module';
-import { httpInterceptorProviders } from './pages/auth/auth.interceptor';
+import { httpInterceptorProviders } from './pages/auth/auth-interceptor';
 
 @NgModule({
   declarations: [
