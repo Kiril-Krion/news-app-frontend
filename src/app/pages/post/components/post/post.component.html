@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div *ngIf="postData" class="container">
+  <div class="example-card w-full">
+    <img class="w-full mb-4" [src]="postData.imageUrl" alt="photo" />
+    <div class="card-content mb-5">
+      <div>
+        <h1>{{ postData.title }}</h1>
+      </div>
+      <div>
+        <h3>Description:</h3>
+        <p class="desc">{{ postData.text }}</p>
+      </div>
+      <div class="flex items-center pb-5">
+        <mat-icon class="block mr-2">remove_red_eye</mat-icon>
+        <div>{{ postData.viewsCount }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comment-block">
+    <h1>Comments</h1>
+    <div *ngIf="postData.comments.length === 0">
+      <h3>No comments yet...</h3>
+    </div>
+    <ng-container *ngFor="let comment of postData.comments">
+      <div class="border-b-4 p-8 mb-8">
+        <div class="comment-user flex">
+          <mat-icon class="mr-2">account_circle</mat-icon>
+          <h3>{{ comment.fullName }}</h3>
+        </div>
+        <p>{{ comment.text }}</p>
+      </div>
+    </ng-container>
+
+    <form [formGroup]="addCommentForm">
+      <h1>Create a comment</h1>
+      <textarea formControlName="text" class="block border-1 comment mb-4" placeholder="Enter your comment..."></textarea>
+      <button (click)="createComment(postData._id)" class="submit-btn" mat-raised-button color="primary">Create</button>
+    </form>
+  </div>
+</div>

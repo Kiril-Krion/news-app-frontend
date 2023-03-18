@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
@@ -16,6 +17,7 @@ import {MatIconModule} from "@angular/material/icon";
   imports: [
     CommonModule,
     MatCardModule,
+    RouterModule,
     MatIconModule
   ]
 })

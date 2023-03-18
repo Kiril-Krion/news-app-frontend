@@ -1,5 +1,5 @@
 <ng-container *ngFor="let posts of allPosts">
-  <div class="example-card w-full">
+  <div [routerLink]="'post/' + posts._id" class="example-card w-full">
     <img
       class="w-full mb-4"
       [src]="posts.imageUrl"
@@ -9,6 +9,7 @@
       <div>
         <h1>{{ posts.title }}</h1>
       </div>
+      <p>{{ posts.createdAt }}</p>
       <div>
         <h3>Description: </h3>
         <p class="desc">{{ posts.text }}</p>

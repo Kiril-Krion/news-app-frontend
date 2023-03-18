@@ -16,6 +16,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
   },
+  {
+    path: 'post/:id',
+    loadChildren: () => import('./pages/post/post.module').then(m => m.PostModule),
+  },
 ];
 
 @NgModule({

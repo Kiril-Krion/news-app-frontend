@@ -1,3 +1,4 @@
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,7 @@ import { httpInterceptorProviders } from './pages/auth/auth-interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    DashboardModule,
     HeaderModule
   ],
   providers: [httpInterceptorProviders],

@@ -9,3 +9,7 @@ export interface Posts {
     viewsCount: 0,
     _id: string
 }
+
+export interface Comment {
+  text: string;
+}
