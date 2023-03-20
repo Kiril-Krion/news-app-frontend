@@ -34,4 +34,7 @@ export class ApiService {
   public createComment(_id: string, text: string): Observable<Comment> {
     return this.http.post<Comment>(`${this.apiUrl}/posts/${_id}/comments`, {text});
   }
+  public deletePost(_id: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/posts/${_id}`, {});
+  }
 }

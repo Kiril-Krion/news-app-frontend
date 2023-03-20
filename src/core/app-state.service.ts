@@ -14,4 +14,8 @@ export class AppStateService {
   get isAuthenticated(): boolean {
     return !!this.token;
   }
+
+  get userData() {
+    return JSON.parse(localStorage.getItem('user') || '');
+  }
 }

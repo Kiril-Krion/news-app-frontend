@@ -7,7 +7,6 @@ import { ApiService } from '../api.service';
   providedIn: 'root'
 })
 export class PostsService {
-  updatePost$ = new BehaviorSubject<boolean>(false);
 
   constructor(private apiService: ApiService) { }
 
@@ -21,5 +20,9 @@ export class PostsService {
 
   createComment(_id: string, text: string): Observable<Comment> {
     return this.apiService.createComment(_id, text);
+  }
+
+  deletePost(_id: string): Observable<any> {
+    return this.apiService.deletePost(_id);
   }
 }

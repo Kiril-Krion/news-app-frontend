@@ -2,7 +2,10 @@
   <div class="container">
     <div class="items flex justify-between">
       <a class="cursor-pointer" [routerLink]="['/']">News App</a>
-      <button (click)="logOut()" class="logout-btn" mat-raised-button>Log out</button>
+      <div class="buttons">
+        <button [routerLink]="['/profile']" color="warn" mat-raised-button>Profile</button>
+        <button (click)="logOut()" class="logout-btn" mat-raised-button>Log out</button>
+      </div>
     </div>
   </div>
 </mat-toolbar>
