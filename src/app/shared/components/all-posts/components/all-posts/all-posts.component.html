@@ -1,13 +1,14 @@
+<h2 class="text-center" *ngIf="allPosts?.length === 0">No posts yet...</h2>
 <ng-container *ngFor="let posts of allPosts">
   <div [routerLink]="'post/' + posts._id" class="example-card w-full">
     <img
-      class="w-full mb-4"
+      class="w-full mb-4 cursor-pointer"
       [src]="posts.imageUrl"
       alt="photo"
     />
     <div class="card-content ml-5 mb-5">
       <div>
-        <h1>{{ posts.title }}</h1>
+        <h1 class="cursor-pointer">{{ posts.title }}</h1>
       </div>
       <p>{{ posts.createdAt }}</p>
       <div>

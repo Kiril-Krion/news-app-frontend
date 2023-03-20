@@ -35,7 +35,10 @@
     <form [formGroup]="addCommentForm">
       <h1>Create a comment</h1>
       <textarea formControlName="text" class="block border-1 comment mb-4" placeholder="Enter your comment..."></textarea>
-      <button (click)="createComment(postData._id)" class="submit-btn" mat-raised-button color="primary">Create</button>
+      <div class="error">
+        <mat-error *ngIf="addCommentForm.controls['text'].invalid && addCommentForm.controls['text'].touched">Enter your comment</mat-error>
+      </div>
+      <button (submit)="createComment(postData._id)" class="submit-btn" mat-raised-button color="primary">Create</button>
     </form>
   </div>
 </div>

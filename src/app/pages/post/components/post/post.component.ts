@@ -1,3 +1,4 @@
+import { takeUntil } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DestroySubscription } from 'src/app/shared/helpers/destroy-subscription';
@@ -28,14 +29,17 @@ export class PostComponent extends DestroySubscription implements OnInit {
   }
 
   getOnePost(_id: string) {
-    this.postService.getOnePost(_id).subscribe(data => {
+    this.postService.getOnePost(_id).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
       this.postData = data;
     })
   }
 
   createComment(_id: string) {
     const text = this.addCommentForm.get('text')?.value;
-    this.postService.createComment(_id, text).subscribe(data => {
+    if(!text) {
+      return;
+    }
+    this.postService.createComment(_id, text).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
       this.ngOnInit();
     });
   }

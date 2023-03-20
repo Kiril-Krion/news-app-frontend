@@ -18,6 +18,10 @@ export class PostsService {
     return this.apiService.getOnePost(_id);
   }
 
+  getPostsByUser(_id: string): Observable<Posts> {
+    return this.apiService.getPostsByUser(_id);
+  }
+
   createComment(_id: string, text: string): Observable<Comment> {
     return this.apiService.createComment(_id, text);
   }

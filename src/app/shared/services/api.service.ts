@@ -31,6 +31,9 @@ export class ApiService {
   public getOnePost(_id: string): Observable<Posts> {
     return this.http.get<Posts>(`${this.apiUrl}/posts/${_id}`);
   }
+  public getPostsByUser(_id: string): Observable<Posts> {
+    return this.http.get<Posts>(`${this.apiUrl}/posts/user/${_id}`);
+  }
   public createComment(_id: string, text: string): Observable<Comment> {
     return this.http.post<Comment>(`${this.apiUrl}/posts/${_id}/comments`, {text});
   }

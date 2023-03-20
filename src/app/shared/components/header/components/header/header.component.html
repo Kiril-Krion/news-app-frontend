@@ -3,7 +3,8 @@
     <div class="items flex justify-between">
       <a class="cursor-pointer" [routerLink]="['/']">News App</a>
       <div class="buttons">
-        <button [routerLink]="['/profile']" color="warn" mat-raised-button>Profile</button>
+        <button [routerLink]="['/create-post']" color="warn" mat-raised-button>Create a new post</button>
+        <button [routerLink]="['/profile']" class="profile-btn" color="warn" mat-raised-button>Profile</button>
         <button (click)="logOut()" class="logout-btn" mat-raised-button>Log out</button>
       </div>
     </div>

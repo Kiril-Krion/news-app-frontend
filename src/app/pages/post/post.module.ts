@@ -7,6 +7,7 @@ import { HeaderModule } from "../../shared/components/header/header.module";
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     PostRoutingModule,
     HeaderModule,
     MatIconModule,
+    MatFormFieldModule,
     MatButtonModule,
     ReactiveFormsModule
   ]
