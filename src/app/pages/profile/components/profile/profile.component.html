@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+  <div *ngIf="userData" class="user-data">
+    <div class="name text-center">
+      <img class="user-avatar" src="./assets/images/pngwing.com.png" alt="avatar">
+      <h1 class="text-center">{{ userData.fullName }}</h1>
+      <p class="email">Email: {{ userData.email }}</p>
+    </div>
+
+    <div class="posts">
+      <h1>Your posts: </h1>
+      <ng-container *ngFor="let posts of userData.posts">
+        <div class="example-card w-full">
+          <img
+            class="w-full mb-4"
+            [src]="posts.imageUrl"
+            alt="photo"
+          />
+          <div class="card-content ml-5 mb-5">
+            <div class="flex justify-between">
+              <h1>{{ posts.title }}</h1>
+              <div class="buttons">
+                <button class="mr-5"><mat-icon>build</mat-icon></button>
+                <button (click)="deletePost(posts._id)" class="mr-5"><mat-icon class="delete-icon">delete_forever</mat-icon></button>
+              </div>
+            </div>
+            <p>{{ posts.createdAt }}</p>
+            <div>
+              <h3>Description: </h3>
+              <p class="desc">{{ posts.text }}</p>
+            </div>
+            <div class="flex items-center pb-5">
+              <mat-icon class="block mr-2">remove_red_eye</mat-icon>
+              <div>{{ posts.viewsCount }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
