@@ -1,0 +1,14 @@
+<div class="dialog">
+  <div class="dialog-header">
+    <div class="cancel-button text-right cursor-pointer" (click)="close()">&times;</div>
+  </div>
+  <div class="dialog-content">
+    <h2>You sure you want to delete a post?</h2>
+
+    <div class="buttons flex justify-between">
+      <button (click)="deletePost()" class="cursor-pointer" mat-raised-button color="primary">Yes</button>
+      <button (click)="close()" class="cursor-pointer" mat-raised-button color="warn">No</button>
+    </div>
+  </div>
+</div>
+

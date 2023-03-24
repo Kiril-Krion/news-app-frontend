@@ -6,6 +6,7 @@
       <div>
         <h1>{{ postData.title }}</h1>
       </div>
+      <p>Author: {{ postData.user?.fullName }}</p>
       <div>
         <h3>Description:</h3>
         <p class="desc">{{ postData.text }}</p>
@@ -38,7 +39,7 @@
       <div class="error">
         <mat-error *ngIf="addCommentForm.controls['text'].invalid && addCommentForm.controls['text'].touched">Enter your comment</mat-error>
       </div>
-      <button (submit)="createComment(postData._id)" class="submit-btn" mat-raised-button color="primary">Create</button>
+      <button (click)="createComment(postData._id)" class="submit-btn" mat-raised-button color="primary">Create</button>
     </form>
   </div>
 </div>

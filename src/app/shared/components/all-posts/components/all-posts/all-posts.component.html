@@ -10,7 +10,8 @@
       <div>
         <h1 class="cursor-pointer">{{ posts.title }}</h1>
       </div>
-      <p>{{ posts.createdAt }}</p>
+      <p>Author: {{ posts.user?.fullName }}</p>
+      <p>Created at: {{ posts.createdAt }}</p>
       <div>
         <h3>Description: </h3>
         <p class="desc">{{ posts.text }}</p>

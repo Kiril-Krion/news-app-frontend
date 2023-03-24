@@ -55,7 +55,9 @@ export class LoginComponent extends DestroySubscription implements OnInit {
     this.apiService.login(formData).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
       this.router.navigate(['/']);
     }, (err) => {
-      this.snackBar.open('User not found(');
+      this.snackBar.open('User not found(', '', {
+        duration: 2000
+      });
     });
   }
 

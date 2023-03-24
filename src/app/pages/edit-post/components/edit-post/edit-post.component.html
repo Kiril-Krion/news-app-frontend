@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container">
+  <h1 class="text-center">Edit your post</h1>
+
+  <form *ngIf="postData" [formGroup]="postForm" class="post-form flex flex-col mt-16">
+    <div class="form-field image flex flex-col">
+      <mat-form-field class="form-field">
+        <mat-label>Load your image url</mat-label>
+        <input formControlName="imageUrl" [(ngModel)]="postData.imageUrl" matInput placeholder="Load your image url">
+      </mat-form-field>
+    </div>
+    <mat-form-field class="form-field">
+      <mat-label>Enter your title</mat-label>
+      <input formControlName="title" [(ngModel)]="postData.title" matInput placeholder="Enter your title">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Enter your description</mat-label>
+      <textarea formControlName="text" [(ngModel)]="postData.text" class="desc-area" matInput placeholder="Enter your description"></textarea>
+    </mat-form-field>
+
+    <button (click)="onSubmit(postData._id)" class="submit-btn" mat-raised-button color="primary">EDIT A POST</button>
+  </form>
+</div>
+

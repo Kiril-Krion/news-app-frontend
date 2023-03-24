@@ -40,4 +40,10 @@ export class ApiService {
   public deletePost(_id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/posts/${_id}`, {});
   }
+  public createPost(payload: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/posts`, payload);
+  }
+  public editPost(payload: any, _id: string): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/posts/${_id}`, payload);
+  }
 }

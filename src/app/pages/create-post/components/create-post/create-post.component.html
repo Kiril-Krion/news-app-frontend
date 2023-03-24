@@ -1,4 +1,24 @@
 <app-header></app-header>
 <div class="container">
-  <p>create-post works!</p>
+  <h1 class="text-center">Create your post</h1>
+
+  <form [formGroup]="postForm" class="post-form flex flex-col mt-16">
+    <div class="form-field image flex flex-col">
+      <mat-form-field class="form-field">
+        <mat-label>Load your image url</mat-label>
+        <input formControlName="imageUrl" matInput placeholder="Load your image url">
+      </mat-form-field>
+    </div>
+    <mat-form-field class="form-field">
+      <mat-label>Enter your title</mat-label>
+      <input formControlName="title" matInput placeholder="Enter your title">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Enter your description</mat-label>
+      <textarea formControlName="text" class="desc-area" matInput placeholder="Enter your description"></textarea>
+    </mat-form-field>
+
+    <button (click)="onSubmit()" class="submit-btn" mat-raised-button color="primary">CREATE A POST</button>
+  </form>
 </div>

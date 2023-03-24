@@ -4,6 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import {AppStateService} from "../../../../../core/app-state.service";
 import {PostsService} from "../../../../shared/services/posts/posts.service";
 import { takeUntil } from 'rxjs';
+import {MatDialog} from "@angular/material/dialog";
+import {
+  DeletePostModalComponent
+} from "../../../../shared/components/delete-post-modal/components/delete-post-modal/delete-post-modal.component";
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +18,7 @@ export class ProfileComponent extends DestroySubscription implements OnInit {
   userData: any;
   posts: any;
 
-  constructor(private appState: AppStateService, private postsService: PostsService) {
+  constructor(private appState: AppStateService, private postsService: PostsService, public dialogRef: MatDialog) {
     super();
   }
 
@@ -31,9 +35,13 @@ export class ProfileComponent extends DestroySubscription implements OnInit {
   }
 
   deletePost(_id: string) {
-    this.postsService.deletePost(_id).pipe(takeUntil(this.destroyStream$)).subscribe(data => {
+    this.dialogRef.open(DeletePostModalComponent, {
+      data: {
+        postId: _id
+      }
+    }).afterClosed().subscribe(data => {
       this.ngOnInit();
-    });
+    })
   }
 
 }

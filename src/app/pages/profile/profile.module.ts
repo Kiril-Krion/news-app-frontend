@@ -5,6 +5,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './components/profile/profile.component';
 import {HeaderModule} from "../../shared/components/header/header.module";
 import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
     ProfileRoutingModule,
     HeaderModule,
     MatIconModule,
+    MatDialogModule
   ]
 })
 export class ProfileModule { }
