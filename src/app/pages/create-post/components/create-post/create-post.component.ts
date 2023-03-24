@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreatePostComponent implements OnInit {
   postForm!: FormGroup;
+  images: any;
   constructor(
     private fb: FormBuilder,
     private postsService: PostsService,
@@ -20,10 +21,20 @@ export class CreatePostComponent implements OnInit {
     this.initForm();
   }
 
-  onSubmit() {
-    const payload = this.postForm.getRawValue();
+  selectImage(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.images = file;
+    }
+  }
 
-    this.postsService.createPost(payload).subscribe(data => {
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('imageUrl', this.images);
+    formData.append('title', this.postForm.get('title')?.value)
+    formData.append('text', this.postForm.get('text')?.value)
+
+    this.postsService.createPost(formData).subscribe(data => {
       this.router.navigate(['/']);
     })
   }

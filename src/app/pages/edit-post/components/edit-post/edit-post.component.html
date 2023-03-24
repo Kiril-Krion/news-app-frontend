@@ -4,10 +4,7 @@
 
   <form *ngIf="postData" [formGroup]="postForm" class="post-form flex flex-col mt-16">
     <div class="form-field image flex flex-col">
-      <mat-form-field class="form-field">
-        <mat-label>Load your image url</mat-label>
-        <input formControlName="imageUrl" [(ngModel)]="postData.imageUrl" matInput placeholder="Load your image url">
-      </mat-form-field>
+      <input type="file" (change)="selectImage($event)" formControlName="imageUrl">
     </div>
     <mat-form-field class="form-field">
       <mat-label>Enter your title</mat-label>

@@ -44,6 +44,20 @@ export class PostComponent extends DestroySubscription implements OnInit {
     });
   }
 
+  getImageUrl(url: string) {
+    if (url) {
+      if (url.startsWith('http://localhost:4444/')) {
+        return url;
+      } else if (url.startsWith('https')) {
+        return url;
+      } else {
+        return `http://localhost:4444/${url}`;
+      }
+    } else {
+      return url;
+    }
+  }
+
   private initForm(): void {
     const fb = this.fb;
     this.addCommentForm = fb.group({

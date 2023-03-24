@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div *ngIf="postData" class="container">
   <div class="example-card w-full">
-    <img class="w-full mb-4" [src]="postData.imageUrl" alt="photo" />
+    <img class="w-full mb-4" [src]="getImageUrl(postData.imageUrl)" alt="photo" />
     <div class="card-content mb-5">
       <div>
         <h1>{{ postData.title }}</h1>

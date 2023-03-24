@@ -15,6 +15,7 @@ export class EditPostComponent extends DestroySubscription implements OnInit {
   postForm!: FormGroup;
   postData: any;
   id: string = '';
+  images: string = '';
   constructor(
     private fb: FormBuilder,
     private postsService: PostsService,
@@ -39,10 +40,21 @@ export class EditPostComponent extends DestroySubscription implements OnInit {
     })
   }
 
+  selectImage(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.images = file;
+    }
+  }
+
   onSubmit(_id: string) {
+    const formData = new FormData();
+    formData.append('imageUrl', this.images);
+    formData.append('title', this.postForm.get('title')?.value)
+    formData.append('text', this.postForm.get('text')?.value)
     const payload = this.postForm.getRawValue();
 
-    this.postsService.editPost(payload, _id).subscribe(data => {
+    this.postsService.editPost(formData, _id).subscribe(data => {
       this.router.navigate(['/']);
     })
   }

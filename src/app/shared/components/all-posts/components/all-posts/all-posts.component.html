@@ -3,7 +3,7 @@
   <div [routerLink]="'post/' + posts._id" class="example-card w-full">
     <img
       class="w-full mb-4 cursor-pointer"
-      [src]="posts.imageUrl"
+      [src]="getImageUrl(posts.imageUrl)"
       alt="photo"
     />
     <div class="card-content ml-5 mb-5">
