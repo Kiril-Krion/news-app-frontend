@@ -3,3 +3,4 @@
   <h1>Posts: </h1>
   <app-all-posts *ngIf="allPosts" [allPosts]="allPosts"></app-all-posts>
 </div>
+<app-loader *ngIf="!allPosts"></app-loader>

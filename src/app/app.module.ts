@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from './shared/components/header/header.module';
 import { httpInterceptorProviders } from './pages/auth/auth-interceptor';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { httpInterceptorProviders } from './pages/auth/auth-interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     DashboardModule,
-    HeaderModule
+    HeaderModule,
+    MatProgressSpinnerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderModule } from "../../shared/components/header/header.module";
 import {AllPostsModule} from "../../shared/components/all-posts/all-posts.module";
+import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import {AllPostsModule} from "../../shared/components/all-posts/all-posts.module
         DashboardRoutingModule,
         HeaderModule,
         AllPostsModule,
+        LoaderModule
     ]
 })
 export class DashboardModule { }

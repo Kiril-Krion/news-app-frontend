@@ -11,7 +11,6 @@ import {Posts} from "../../../../shared/models/posts.model";
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent extends DestroySubscription implements OnInit {
-  // TODO: refactor (Add models)
   userData: any;
   allPosts: Posts[] | undefined;
 

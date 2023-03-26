@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoaderModule
   ]
 })
 export class PostModule { }
